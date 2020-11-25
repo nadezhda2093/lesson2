@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: lesson2
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+  liquibase:
+    change-log: classpath:migrations/changelog.xml
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    database: POSTGRESQL
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.jdbc.lob.non_contextual_creation: true
+
+server:
+  port: 8090

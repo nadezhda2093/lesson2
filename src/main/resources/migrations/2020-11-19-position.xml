@@ -1,0 +1,44 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="2020-11-19-position-0" author="ruamiid">
+        <createTable tableName="position">
+            <column name="id"
+                    type="bigint"
+                    autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name"
+                    type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="grade"
+                    type="varchar(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="min_salary"
+                    type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="max_salary"
+                    type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="position" columnNames="name, grade"/>
+    </changeSet>
+
+    <changeSet id="2020-11-19-position-1" author="ruamiid">
+        <insert tableName="position">
+            <column name="name">Java-developer</column>
+            <column name="grade">Junior</column>
+            <column name="min_salary">5000</column>
+            <column name="max_salary">10000</column>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
